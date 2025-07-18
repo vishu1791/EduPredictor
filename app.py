@@ -30,9 +30,9 @@ st.markdown("""
     }
     
     /* Hide Streamlit Elements */
-    #MainMenu {visibility: hidden;}
+    /* #MainMenu {visibility: hidden;} */
+    /* header {visibility: hidden;} */
     footer {visibility: hidden;}
-    header {visibility: hidden;}
     
     /* Background Gradient */
     .stApp {
@@ -448,6 +448,100 @@ st.markdown("""
     .stSelectbox > div > div > select:focus {
         border-color: #667eea;
         box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .main-container, .header-container, .form-container, .upload-section, .feedback-container, .feature-card {
+            padding: 1.2rem;
+            margin: 0.5rem;
+        }
+        .header-title {
+            font-size: 2.5rem;
+        }
+        .individual-title {
+            font-size: 1.7rem;
+        }
+    }
+    @media (max-width: 900px) {
+        .main-container, .header-container, .form-container, .upload-section, .feedback-container, .feature-card {
+            padding: 1rem;
+            margin: 0.3rem;
+        }
+        .header-title {
+            font-size: 2rem;
+        }
+        .individual-title {
+            font-size: 1.3rem;
+        }
+        .metric-card {
+            font-size: 0.95rem;
+            padding: 1rem;
+        }
+        .feature-title {
+            font-size: 1rem;
+        }
+    }
+    @media (max-width: 600px) {
+        .main-container, .header-container, .form-container, .upload-section, .feedback-container, .feature-card {
+            padding: 0.5rem;
+            margin: 0.1rem;
+            border-radius: 10px;
+        }
+        .header-title {
+            font-size: 1.3rem;
+        }
+        .header-subtitle, .individual-subtitle, .feature-desc, .feedback-content {
+            font-size: 0.9rem;
+        }
+        .individual-title {
+            font-size: 1rem;
+        }
+        .metric-card {
+            font-size: 0.85rem;
+            padding: 0.7rem;
+            border-radius: 8px;
+        }
+        .prediction-result {
+            font-size: 1.5rem;
+        }
+        .prediction-confidence {
+            font-size: 1rem;
+        }
+        .feature-title {
+            font-size: 0.95rem;
+        }
+        .feature-icon {
+            font-size: 1.5rem;
+        }
+        .stButton > button, .stDownloadButton > button, .nav-button {
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+        }
+        .stDataFrame {
+            font-size: 0.85rem;
+        }
+    }
+    /* Stack columns vertically on small screens */
+    @media (max-width: 900px) {
+        .block-container .css-1lcbmhc, /* Streamlit columns class (may change in future versions) */
+        .block-container .stColumns {
+            flex-direction: column !important;
+        }
+        .stColumn {
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+    }
+    /* Make dataframes and charts scrollable on small screens */
+    @media (max-width: 600px) {
+        .stDataFrame, .stTable, .stPlotlyChart, .stAltairChart, .stVegaLiteChart {
+            overflow-x: auto !important;
+            max-width: 100vw !important;
+        }
+    }
+    /* Hide the Streamlit Deploy button */
+    [data-testid="stDeployButton"] {
+        display: none !important;
     }
 </style>
 """, unsafe_allow_html=True)
